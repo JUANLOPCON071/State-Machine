@@ -28,3 +28,5 @@ const bookingMachine = createMachine({
         },
     }
 })
+
+export default bookingMachine;
