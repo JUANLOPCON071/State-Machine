@@ -1,0 +1,34 @@
+.Welcome-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.Welcome-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
+.Welcome-description {
+    font-size: 1rem;
+    max-width: 400px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.Welcome-button {
+    background-color: white;
+    color: #293684;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.Welcome-button:hover {
+    background-color: #dadee9;
+}

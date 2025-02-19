@@ -1,0 +1,24 @@
+import React from "react";
+import { useMachine } from '@xstate/react';
+import { Nav } from "../../Components/Nav/Nav";
+import { StepsLayout } from "../StepsLayout/StepsLayout";
+import bookingMachine from '../../Machines/bookingMachine'
+import './BaseLayout.css';
+
+const BaseLayout = () => {
+    const [state, send] = useMachine(bookingMachine);
+
+    console.log('nuestra maquina', state);
+    console.log('matches true', state.matches('initial'));
+    console.log('matches false', state.matches('tickets'));
+    console.log('can', state.matches('FINISH'));
+    
+    return (
+        <div className='BaseLayout'>
+            <Nav/>
+            <StepsLayout/>
+        </div>
+    )
+}
+
+export { BaseLayout };

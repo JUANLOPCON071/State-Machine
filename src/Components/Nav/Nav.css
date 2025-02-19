@@ -1,0 +1,32 @@
+.Nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgba(255,255,255, 0.7);
+    padding: 16px;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.Nav-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0;
+    color: #293684;
+}
+.Nav-cancel {
+    background-color: #293684;
+    color: white;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.Nav-cancel:hover {
+    background-color: #2f49db;
+}
