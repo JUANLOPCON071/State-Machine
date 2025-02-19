@@ -5,6 +5,12 @@
     align-items: center;
     padding: 0 8px;
 }
+.Passengers-title {
+    font-size: 1.5rem;
+    font-weight:500;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
 .Passengers input {
     font-size: 1rem;
     margin: 16px 0;
@@ -20,6 +26,36 @@
     gap: 16px;
     width: 100%;
     margin-top: 8px;
+}
+.Passengers-add {
+    background-color: white;
+    color: #293684;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.Passengers-add:hover {
+    background-color: #dadee9;
+}
+.Passenger-pay {
+    background-color: white;
+    color: #293684;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+.Passenger-pay:hover {
+    background-color: #dadee9;
 }
 .Passengers-title {
     margin-bottom: 16px;

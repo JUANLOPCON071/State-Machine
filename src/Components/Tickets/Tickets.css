@@ -4,8 +4,27 @@
     align-items: center;
     flex-direction: column;
 }
+.Tickets-description {
+    font-size: 1.5rem;
+    font-weight:500;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+}
 .Tickets-finalizar {
+    background-color: white;
+    color: #293684;
+    font-size: .8rem;
+    font-weight: bold;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
     margin-left: auto;
+}
+.Tickets-finalizar:hover {
+    background-color: #dadee9;
 }
 .Tickets-ticket {
     display: grid;
