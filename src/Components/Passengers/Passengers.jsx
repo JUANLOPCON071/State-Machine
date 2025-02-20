@@ -4,6 +4,8 @@ import './Passengers.css'
 export const Passengers = ({ state, send }) => {
     const [value, changeValue] = useState('');
 
+    const passengers = state.context.passengers;
+
     const goToTicket = () => {
         send({ type: 'DONE'})
     }
@@ -14,6 +16,7 @@ export const Passengers = ({ state, send }) => {
 
     const submit = (e) => {
         e.preventDefault();
+        send({ type: 'ADD', newPassenger: value})
         changeValue('');
     }
 
@@ -39,6 +42,13 @@ export const Passengers = ({ state, send }) => {
                     Ver mi ticket
                 </button>
             </div>
+            <ul className="Passengers-list">
+                {passengers.map((passenger, index) => (
+                    <li key={index} className="Passenger-item">
+                        {passenger}
+                    </li>
+                ))}
+            </ul>
         </form>
     )
 }
