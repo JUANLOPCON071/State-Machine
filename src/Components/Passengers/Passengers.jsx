@@ -34,6 +34,13 @@ export const Passengers = ({ state, send }) => {
                 value={value}
                 onChange={onChangeInput} 
             />
+            <ul className="Passengers-list">
+                {passengers.map((passenger, index) => (
+                    <li key={index} className="Passenger-item">
+                        {passenger}
+                    </li>
+                ))}
+            </ul>
             <div className='Passengers-buttons'>
                 <button className='Passengers-add' type="submit">
                     Agregar Pasajero
@@ -42,13 +49,6 @@ export const Passengers = ({ state, send }) => {
                     Ver mi ticket
                 </button>
             </div>
-            <ul className="Passengers-list">
-                {passengers.map((passenger, index) => (
-                    <li key={index} className="Passenger-item">
-                        {passenger}
-                    </li>
-                ))}
-            </ul>
         </form>
     )
 }
