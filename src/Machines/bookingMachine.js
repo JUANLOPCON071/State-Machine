@@ -1,18 +1,31 @@
-import { assign, createMachine } from 'xstate';
+import { assign, createMachine, fromPromise } from 'xstate';
+import { fetchCountries } from '../Utils/api';
 
-const fillCounttries = {
+const fillCountries = {
     initial: 'loading',
     states: {
-        on: {
-            DONE: 'success',
-            Error: 'failure',
+        loading: {
+            invoke: {
+                id: 'getCountries',
+                src: fromPromise(() => fetchCountries()),
+                onDone: {
+                    target: 'success',
+                    actions: assign({ countries: ({ event }) => event.output}),
+                },
+                onError: {
+                    target: 'failure',
+                    actions: assign({
+                        error: 'Fallo el request',
+                    })
+                }
+            }
         },
-    },
-    success: {},
-    failure: {
-        on: {
-            RETRY: { target: 'loading'},
-        }
+        success: {},
+        failure: {
+            on: {
+                RETRY: { target: 'loading'},
+            },
+        },
     },
 }
 
@@ -22,6 +35,8 @@ const bookingMachine = createMachine({
     context: {
         passengers: [],
         selectedCountry: '',
+        countries: [],
+        error: '',
     },
     states: {
         initial: {
@@ -37,13 +52,13 @@ const bookingMachine = createMachine({
                 CONTINUE: {
                     target: 'passengers',
                     actions: assign({
-                        selectedCountry: ({ event }) => 
+                        selectedCountry: ({ context,event }) => 
                             event.selectedCountry,
                     })
                 },
                 CANCEL: 'initial',
             },
-            ...fillCounttries,
+            ...fillCountries,
         },
         passengers: {
             on: {
@@ -62,9 +77,13 @@ const bookingMachine = createMachine({
             }
         },
         tickets: {
+            after: {
+                5000: {
+                    target: 'initial'
+                }
+            },
             on: {
                 FINISH: 'initial',
-                CANCEL: 'initial'
             }
         },
     },

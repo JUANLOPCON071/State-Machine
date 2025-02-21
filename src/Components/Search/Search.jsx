@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import './Search.css';
 
-export const Search = ({ send }) => {
+export const Search = ({ state, send }) => {
     const [flight, setFlight] = useState('');
 
     const goToPassengers = () => {
@@ -12,7 +12,7 @@ export const Search = ({ send }) => {
         setFlight(event.target.value);
     };
 
-    const options = ['Mexico','Argentina','Brasil'];
+    const options = state.context.countries;
 
     return (
         <div className='Search'>
@@ -25,7 +25,7 @@ export const Search = ({ send }) => {
             >
                 <option value="" disabled defaultValue>Escoge un destino</option>
                 {options.map((option) => 
-                    <option value={option} key={option}>{option}</option>
+                    <option value={option.name.common} key={option.name.common}>{option.name.common}</option>
                 )}
             </select>
             <button 
