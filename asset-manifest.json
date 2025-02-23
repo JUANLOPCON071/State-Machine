@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/State-Machine/static/css/main.7483fa28.css",
+    "main.js": "/State-Machine/static/js/main.bc51d76e.js",
+    "static/js/453.23c1d56b.chunk.js": "/State-Machine/static/js/453.23c1d56b.chunk.js",
+    "static/media/pexels-nurseryart-346885.jpg": "/State-Machine/static/media/pexels-nurseryart-346885.e3225e4cd0de8df2fccc.jpg",
+    "index.html": "/State-Machine/index.html",
+    "main.7483fa28.css.map": "/State-Machine/static/css/main.7483fa28.css.map",
+    "main.bc51d76e.js.map": "/State-Machine/static/js/main.bc51d76e.js.map",
+    "453.23c1d56b.chunk.js.map": "/State-Machine/static/js/453.23c1d56b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7483fa28.css",
+    "static/js/main.bc51d76e.js"
+  ]
+}
