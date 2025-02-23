@@ -10,12 +10,21 @@ export const Tickets = ({ send, context }) => {
         <div className='Tickets'>
             <p className='Tickets-description'>Gracias por volar con Milofly 💚</p>
             <div className='Tickets-ticket'>
-                <div className='Tickets-country'>Colombia</div>
+                <div className="Tickets-route">
+                    <span>Colombia</span>
+                    <span className="Tickets-arrow"> ➝ </span>
+                    <span>{context.selectedCountry || "Destino desconocido"}</span>
+                </div>
                 <div className='Tickets-passengers'>
-                    <span>✈</span>
-                    {context.passengers.map((person, idx) => {
-                        return <p key={idx}>{person}</p>
-                    })}
+                    <div className='Tickets-header'>
+                        <span className='Tickets-icon'>✈</span>
+                        <p>Pasajeros</p>    
+                    </div>
+                    <ul className='Tickets-list'>
+                        {context.passengers.map((person, idx) => {
+                            return <li key={idx}>{person}</li>
+                        })}
+                    </ul>
                 </div>
             </div>
             <button onClick={finish} className='Tickets-finalizar'>
