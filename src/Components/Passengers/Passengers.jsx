@@ -3,6 +3,7 @@ import './Passengers.css'
 
 export const Passengers = ({ state, send }) => {
     const [value, changeValue] = useState('');
+    const [showLimitAlert, setShowLimitAlert] = useState(false);
 
     const passengers = state.context.passengers;
 
@@ -16,7 +17,18 @@ export const Passengers = ({ state, send }) => {
 
     const submit = (e) => {
         e.preventDefault();
+
+        if (passengers.length >= 5) {
+            setShowLimitAlert(true);
+            return;
+        }
+
         send({ type: 'ADD', newPassenger: value})
+        changeValue('');
+    }
+
+    const closeLimitAlert = () => {
+        setShowLimitAlert(false);
         changeValue('');
     }
 
@@ -49,6 +61,14 @@ export const Passengers = ({ state, send }) => {
                     Ver mi ticket
                 </button>
             </div>
+            {showLimitAlert && (
+                <div className='modal-overlay'>
+                    <div className='modal-content'>
+                        <p>⚠️ ¡Has alcanzado el límite de 5 pasajeros!</p>
+                        <button onClick={closeLimitAlert}>Aceptar</button>
+                    </div>
+                </div>
+            )}
         </form>
     )
 }

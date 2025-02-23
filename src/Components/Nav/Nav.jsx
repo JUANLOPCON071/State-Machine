@@ -34,11 +34,15 @@ export const Nav = ({ state, send }) => {
                         <h2>Confirmar cancelación</h2>
                         <p>¿Estás seguro de que deseas cancelar la reserva?</p>
                         <div className='modal-buttons'>
-                            <button onClick={confirmCancel} className='confirm-btn'>
-                                Sí, cancelar
+                            <button 
+                                onClick={confirmCancel} 
+                                className='confirm-btn'>
+                                    Sí, cancelar
                             </button>
-                            <button onClick={closeModal} className='cancel-btn'>
-                                No, volver
+                            <button 
+                                onClick={closeModal} 
+                                className='cancel-btn'>
+                                    No, volver
                             </button>
                         </div>
                     </div>

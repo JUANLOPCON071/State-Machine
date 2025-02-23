@@ -69,22 +69,35 @@ const bookingMachine = createMachine({
                 CANCEL: 'initial',
                 ADD: {
                     target: 'passengers',
-                    actions: assign(
-                        ({ context, event }) => {
-                            return {
-                                passengers: [...context.passengers, event.newPassenger]
-                            }
+                    actions: assign(({ context, event }) => {
+                        const newPassenger = event.newPassenger;
+                        const exists = context.passengers.some( p =>
+                            p.toLowerCase() === newPassenger.toLowerCase()
+                        );
+
+                        if (context.passengers.length >= 5) {
+                            return { ...context, error: 'Máximo 5 pasajeros permitidos.'}
+                        }
+
+                        if (exists) {
+                            return {...context, error: 'Este pasajero ya fue agregado.'};
+                        }
+                        
+                        return {
+                            passengers: [...context.passengers, newPassenger],
+                            error: ''
+                        }
                         }
                     )
                 }
             }
         },
         tickets: {
-            after: {
-                5000: {
-                    target: 'initial'
-                }
-            },
+            // after: {
+            //     5000: {
+            //         target: 'initial'
+            //     }
+            // },
             on: {
                 FINISH: 'initial',
             }
